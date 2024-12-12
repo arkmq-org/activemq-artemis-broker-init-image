@@ -56,8 +56,8 @@ jobs:
 
       - name: Set up the repo
         run: |
-          git config user.name 'artemiscloud-bot'
-          git config user.email 'bot@artemiscloud.io'
+          git config user.name 'arkmq-bot'
+          git config user.email 'bot@arkmq-org.io'
           git push
 
       - name: Update version
@@ -88,11 +88,11 @@ jobs:
         if: ${{ inputs.update_yacfg_version }}
         run: |
           if [ "${{ inputs.yacfg_version }}" = "latest" ]; then
-            YACFG_VER="$(git ls-remote --tags https://github.com/artemiscloud/yacfg.git | grep -oP '(?<=refs/tags/)v\d+.\d+.\d' | sort --reverse --version-sort | head -n 1)"
+            YACFG_VER="$(git ls-remote --tags https://github.com/arkmq-org/yacfg.git | grep -oP '(?<=refs/tags/)v\d+.\d+.\d' | sort --reverse --version-sort | head -n 1)"
           else
             YACFG_VER="${{ inputs.yacfg_version }}"
           fi
-          YACFG_REP='https://github.com/artemiscloud/yacfg.git'
+          YACFG_REP='https://github.com/arkmq-org/yacfg.git'
 
           YACFG_REF=$(git ls-remote --tags ${YACFG_REP} | grep -oP ".*(?=refs/tags/${YACFG_VER}\^\{\}\$)" | tr -d '[:blank:]')
           if [[ $YACFG_REF != "" ]]; then
