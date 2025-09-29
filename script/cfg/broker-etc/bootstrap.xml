@@ -26,11 +26,9 @@
    <server configuration="file:/home/jboss/amq-broker/etc//broker.xml"/>
 
    <!-- The web server is only bound to localhost by default -->
-   <web path="web">
-       <binding uri="http://ex-aao-ss-0.ex-aao-hdls-svc.default.svc.cluster.local:8161">
-           <app url="activemq-branding" war="activemq-branding.war"/>
-           <app url="artemis-plugin" war="artemis-plugin.war"/>
-           <app url="console" war="console.war"/>
+   <web path="web" rootRedirectLocation="console">
+       <binding name="artemis" uri="http://ex-aao-ss-0.ex-aao-hdls-svc.default.svc.cluster.local:8161">
+           <app name="console" url="console" war="console.war"/>
        </binding>
    </web>
 
