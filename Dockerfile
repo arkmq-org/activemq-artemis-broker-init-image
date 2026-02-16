@@ -28,4 +28,4 @@ USER 185
 LABEL name="arkmq-org/activemq-artemis-broker-init"
 LABEL description="ActiveMQ Artemis broker init container image"
 LABEL maintainer="ArkMQ <info@arkmq.org>"
-LABEL version="2.0.10"
+LABEL version="2.0.11"
